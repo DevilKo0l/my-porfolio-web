@@ -1,435 +1,137 @@
-/*start global setting*/
+/*----------------------------------------------*/
+/*               BASIC SETUP                    */
+/*----------------------------------------------*/
+
+@import url('/vendor/css/fonts.css');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
-    font-size: 10px;
-    font-family: 'Spartan',sans-serif;
-    color: #eeeeee;
+/*CSS variable*/
+:root {
+    --primary-color: #4458dc;
+    --primary-color2: #854fee;
+    --title-color:#141313;
+    --text-color:#777777;
+    --border-color:#201f1f17;
+    --gradient-color:linear-gradient(90deg,#4458dc 0%,#854fee 100%);
+    --shadow-color: 0px 10px 30px rgba(118,85,225,0.3);
+    --box-shadow: 0px 10px 30px rgba(27,26,61,0.205);
+
+    --roboto: 'Roboto',cursive;
 }
 
-body{
-    width: 100%;
-    height: 100%;
-    background: url("img/sitebg3.jpg") no-repeat center fixed;
-    background-size: cover;
-}
 
-section{
-    padding: 6rem;
-}
-a{
-    text-decoration: none;
-    color: #eee;
-}
-p{
-    font-size: 1.8 rem;
+/*----------------------------------------------*/
+/*                  HEADING                     */
+/*----------------------------------------------*/
+
+h1,
+h2{
     font-weight: 300;
-}
-img{
-    width: 50%;
-}
-/*end global setting*/
-
-/*start header*/
-header{
-    width: 100%;
-    height: 100vh;
+    text-transform: uppercase;
 }
 
-.top-nav{
-    width: 100%;
-    height: 20vh;
-    position: fixed;
-    top: -100vh; 
-    z-index: 50;
-    background-color: #3498db;
-    border-bottom-right-radius: 100%;
-    border-bottom-left-radius: 100%;
+h1 {
+    margin-top: 0px;
+    margin-bottom: 20px;    
+    font-size: 240%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
 }
 
-.nav-list{
-    list-style: none;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-li{
-    margin: 0 2rem;
-}
-.nav-link{
-    font-family: 'lato', sans-serif;
-    font-size: 5rem;
-    padding: 1rem;
-}
-
-.nav-link:hover,
-.nav-link:focus{
-    background: linear-gradient(to top,#ffe838,#fd57bf);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.top-nav.open{
-    top: 0;
-    border-radius: initial;    
-}
-
-.menu-toggler{
-    position: absolute;
-    top: 5rem;
-    right: 5rem;
-    width: 5rem;
-    height: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 1500;
-    transition: transform 650ms ease-out;
-}
-
-.menu-toggler.open{
-    transform: rotate(-45deg);
-}
-
-.bar{
-    /* background: linear-gradient(to right, #ffe838, #fd57bf); */
-    background: linear-gradient(to right, #eee, #0000);
-    width: 100%;
-    height: 4px;
-    border-radius: .8rem;
-}
-
-.bar.half{
-    width: 50%;
-}
-
-.bar.start{
-    transform-origin: right;
-    transition: transform 650ms cubic-bezier(0.54.-0.81.0.57.0.57);
-}
-
-.open .bar.start{
-    transform: rotate(-450deg) translateX(.8rem);
-}
-.bar.end{
-    align-self: flex-end;
-    transform-origin: left;
-    transition: transform 650ms cubic-bezier(0.54.-0.81.0.57.0.57);
-}
-
-.open .bar.bar.end{
-    transform: rotate(-450deg) translateX(-.8rem);
-}
-
-.landing-text{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+h2{
+    font-size: 180%;
+    word-spacing: 2px;
     text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h2::after{
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 100px;
+    margin:0 auto;
+    margin-top: 30px;
+}
+
+h3{
+    font-size: 110%;
+    margin-bottom: 15px;
+}
+/*----------------------------------------------*/
+/*                  HEADER                     */
+/*----------------------------------------------*/
+
+.hero-text-box {
+       
+    
+     
+    
     z-index: 1;
 }
-
-.landing-text h1{
-    font-size: 20rem;
-    font-family: 'Spartan', sans-serif;    
-    padding: 1rem;
+.hero-text-box h1{
+    font-size: 150px;
+    font-family: 'The Historia Demo', sans-serif;
+    background-color: linear-gradient(to top, #ffe838, #fd57bf);
+    
+   
+    padding: 16px;
     user-select: none;
 }
 
-.landing-text h6{
-    font-size: 2rem;
-    font-weight: 300;
-}
-
-/*end header
-
-/*start resuable*/
-.container{
-    width: 90%;
-    max-width: 120rem;
-    height: 100%;
-    margin: 0 auto;
-    position: relative;
-}
-
-.section-heading{
-    text-align: center;
-    margin-bottom: 10rem;
-}
-
-.section-heading h1{
-    font-size: 3.5rem;
-    color: rgba(255,255,255,.3);
-    text-transform: uppercase;
-    font-weight: 300;
-    position: relative;
-    margin-bottom: 1rem;
-}
-.section-heading h1::before,
-.section-heading h1::after{
-    content: '';
-    position: absolute;
-    bottom: -.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, .75);
-}
-
-.section-heading h1::before{
-    width: 10rem;
-    height: 3px;
-    border-radius: .8rem;
-}
-
-.section-heading h1::after{
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 100%;
-    bottom: -1rem;
-}
-
-.section-heading h6{
-    font-size: 1.6rem;
-    color: rgba(255, 255, 255, .3);
-    text-transform: uppercase;
-    font-weight: 300;
-    position: relative;
-    margin-bottom: 1rem;
-}
-
-.has-margin-right{
-    margin-right: 5rem;
-}
-/*end resuable*/
-/*start about*/
-.about .container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-heading{
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 0;
-    margin-bottom: 6rem;
-}
-.about-heading h1{
-    font-size: 10rem;
-    opacity: 0.3;
-}
-
-.about-heading h6{
-    font-size: 2rem;
-    font-weight: 300;
-}
-
-.profile-img{ 
-    width: 100px;
-    height: auto;  
-    flex: 1;
-    float: left;
-}
-
-.about-details{
-    flex: 1;
-}
-
-.social-media{
-    margin-top: 5rem;
-}
-
-.social-media i{
-    font-size: 5rem;
-    transition: color 650ms;
-}
-
-.circle{
-    border-radius: 50%;
-    margin: 0.15em;
-    font-size: 3em;
-}
-/*End about*/
+/*----------------------------------------------*/
+/*             HEADING PARAGRAPH                */
+/*----------------------------------------------*/
 
 
-/*start service*/
-.my-skills{
-    margin-top: 10rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
-    grid-gap: 2.5rem;
-    text-align: center;
-}
 
-.skill{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-}
 
-.skill h1{
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 2rem -2px 2rem 0;
-}
 
-.icon-container{
-    width: 10rem;
-    height: 10rem;
-    border: 3px solid #eee;
-    background-color: rgba(255, 255, 255, .5);
-    margin-bottom: 2rem;
-    display: flex;
-    transform: rotate(45deg);
-}
-
-.icon-container i{
-    color: #000;
-    font-size: 6rem;
-    margin: auto;
-    transform: rotate(-45deg);
-}
-/*End service*/
-
-/*start porfolio*/
-.portfolio-item{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 5rem;
-    margin-left: 40rem;
-}
-
-.porfolio-item:last-child{
-    margin-bottom: 0;
-}
-
-.portfolio-img{
-    flex: 1;
-    width: 50rem;    
-}
-
-.portfolio-description{
-    flex: 1;
-}
-
-.portfolio-description h1{
-    font-size: 3rem;   
-    font-weight: 300;
-    margin: 1rem 0;
-    
-}
-
-.portfolio-description h6{
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    font-weight: 300;
-    opacity: 0.3;
-}
-
-.portfolio-description .cta{
+/*----------------------------------------------*/
+/*                       Icon                   */
+/*----------------------------------------------*/
+.icon-small {
     display: inline-block;
-    margin-top: 2.5rem;
-    font-size: 1.5rem;
+    width: 30px;
+    text-align: center;
+    color: #eee;
+    font-size: 120%;
+
+    line-height: 120%;
+    vertical-align: middle;
+    margin-top: -5px;
+}
+
+/*----------------------------------------------*/
+/*                    Nav bar                   */
+/*----------------------------------------------*/
+
+.header-area .main-menu .navbar .navbar-brand {
+    padding: 3.2px 8px;
+}
+
+.header-area .main-menu .navbar {
+    padding: 16px 320px;
+}
+
+.header-area .main-menu .nav-item .nav-link {
+    font: normal 500 15px;
+    font-family: var(--roboto);
     text-transform: uppercase;
-    color: #3883ff;
-    transition: color 650ms;
+    font-weight: 500;
+    padding: 27px;
+    color: var(--title-color);
 }
 
-.portfolio-description .cta:hover{
-    color: #2f67cd;
+.header-area .main-menu .navbar-nav a:hover{
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-
-/*End porfolio*/
-
-
-/*start timeline*/
-.timeline ul{
-    border-left: 4px solid #eeeeee;
-    border-radius: .8rem;
-    background-color: rgba(255, 255, 255, .5);
-    margin: 0 auto;
-    position: relative;
-    padding: 5rem;
-    list-style: none;
-    text-align: left;
-    width: 70%;
-}
-
-.timeline h1{
-    font-size: 2rem;
-    text-transform: uppercase;
-    font-weight: 300;
-    margin-bottom: 1rem;
-    opacity: .3;    
-}
-
-.timeline .date{
-    border-bottom: 1px solid rgba(255, 255, 255, .1);
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    position: relative;
-}
-
-.timeline .date:last-of-type{
-    padding-bottom: 0;
-    margin-bottom: 0;
-    border: none;
-}
-
-.timeline .date::before,
-.timeline .date::after{
-    position: absolute;
-    display: block;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.timeline .date::before{
-    content: attr(data-date);
-    left: -21rem;
-    text-align: right;
-    min-width: 12rem;
-    font-size: 1.5rem;
-}
-
-.timeline .date::after{
-    content: '';
-    box-shadow: 0 0 0 4px #eee;
-    border-radius: 100%;
-    left: -7.9rem;
-    height: 1.5rem;
-    width: 1.5rem;
-    background-color: #000;
-}
-/*end timeline*/
-
-/* start contact form*/
-.contact{
-    background-color: #221e3f;
-}
-
-form{
-    width: 70%;
-    margin: 0 auto;    
-}
-
-form label{
-    font-size: 1.5rem;
-}
-
-input, s
-
-
-/*end contact form*/
